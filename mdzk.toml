@@ -13,7 +13,7 @@ ignore = [
 
 
 [build]
-preprocessors = ["toc"]
+# preprocessors = ["toc"]
 create-missing = false
 build-dir = "html"
 
