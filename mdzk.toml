@@ -1,0 +1,34 @@
+[mdzk]
+backlinks-header = "Backlinks"
+authors = ["cxumol"]
+language = "en"
+# multilingual = false
+src = ".." # parent dir
+title = "welcome mdzk"
+description = "coming soon ..."
+ignore = [
+    "templates/",
+    ".obsidian/"
+]
+
+
+[build]
+preprocessors = ["toc"]
+create-missing = false
+build-dir = "html"
+
+[output.html]
+copy-fonts = false
+no-section-label = true
+# git-repository-icon = "fa-github"
+# git-repository-url = "https://github.com/mdzk-rs/mdzk/docs"
+# edit-url-template = "https://github.com/mdzk-rs/mdzk/docs/edit/master/{path}"
+# site-url = "https://mdzk.app/docs"
+# site-url = "/"
+
+[output.html.fold]
+enable = true
+level = 1
+
+[output.html.print]
+enable = true
