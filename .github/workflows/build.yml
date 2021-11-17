@@ -59,7 +59,6 @@ jobs:
 
     - name: Build doc 🔧
       run: |
-        # cd .mdzk || echo uh
         mdzk build
         
     - name: Deploy doc 🚀
