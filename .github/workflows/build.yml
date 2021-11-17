@@ -31,17 +31,17 @@ jobs:
 #         fetch-depth: 0
         path: mdzk
         
-#     - name: Cache cargo registry 🦀
-#       uses: actions/cache@v1
-#       with:
-#         path: ~/.cargo/registry
-#         key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+    - name: Cache cargo registry 🦀
+      uses: actions/cache@v1
+      with:
+        path: ~/.cargo/registry
+        key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
 
-#     - name: Cache cargo build 🦀
-#       uses: actions/cache@v1
-#       with:
-#         path: mdzk/cargo-build-target
-#         key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
+    - name: Cache cargo build 🦀
+      uses: actions/cache@v1
+      with:
+        path: target
+        key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
 
 #     - name: Install Rust 🦀
 #       uses: actions-rs/toolchain@v1
@@ -53,11 +53,12 @@ jobs:
       with:
         crate: mdzk
         version: latest
+        use-tool-cache: true
 
     - name: Build 🔧
       run: |
         cd mdzk
-        cargo-build-target/debug/mdzk build
+        mdzk build
         
     - name: Deploy 🚀
       uses: peaceiris/actions-gh-pages@v3
