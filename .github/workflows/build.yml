@@ -31,6 +31,7 @@ jobs:
       with:
 #         fetch-depth: 0
         path: .
+      # path: .mdzk
         
     - name: Cache cargo registry 🦀
       uses: actions/cache@v1
@@ -49,21 +50,21 @@ jobs:
 #       with:
 #         toolchain: stable
 
-    - name: Install mdzk
+    - name: Install mdzk 🦀
       uses: actions-rs/install@v0.1.2
       with:
         crate: mdzk
         version: latest
         use-tool-cache: true
 
-    - name: Build 🔧
+    - name: Build doc 🔧
       run: |
-        cd mdzk
-        mdzk build
+        cd .mdzk & mdzk build || mdzk build
         
-    - name: Deploy 🚀
+    - name: Deploy doc 🚀
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./mdzk/html
+        # publish_dir: .mdzk/html
+        publish_dir: html
 #         destination_dir: content
