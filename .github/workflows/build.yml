@@ -45,10 +45,13 @@ jobs:
         path: target
         key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
 
-#     - name: Install Rust 🦀
-#       uses: actions-rs/toolchain@v1
-#       with:
-#         toolchain: stable
+    ## - name: Install Rust 🦀
+    ##   uses: actions-rs/toolchain@v1
+    ##   with:
+    ##     toolchain: stable
+    - name: Debug
+      run: |
+        du -a
 
     - name: Install mdzk 🦀
       uses: actions-rs/install@v0.1.2
