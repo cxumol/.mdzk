@@ -32,7 +32,7 @@ jobs:
       with:
 #         fetch-depth: 0
         # path: .
-      path: .mdzk
+        path: .mdzk
 
 
                
