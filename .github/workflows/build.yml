@@ -14,9 +14,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-deploy-nightly:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
+
+    - name: Checkout mdzk builder 🛎️
+      uses: actions/checkout@v2
+      with:
+#         fetch-depth: 0
+        path: .
+      # path: .mdzk
+
     - name: Checkout Obsidian Vault 🛎️
     # https://github.com/simonw/til/blob/main/.github/workflows/build.yml
       uses: actions/checkout@v2
@@ -25,14 +33,7 @@ jobs:
         # path: .
         path: vault
         token: ${{ secrets.PERSONAL_ACCESS_TOKEN_FOR_PUSH }}
-        
-    - name: Checkout mdzk builder 🛎️
-      uses: actions/checkout@v2
-      with:
-#         fetch-depth: 0
-        path: .
-      # path: .mdzk
-        
+               
     - name: Cache cargo registry 🦀
       uses: actions/cache@v1
       with:
